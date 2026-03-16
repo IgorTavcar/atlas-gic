@@ -1,0 +1,23 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Runtime data (generated, not source)
+logs/
+data/state/
+data/backtest/
+data/track_record/
+
+# OS
+.DS_Store

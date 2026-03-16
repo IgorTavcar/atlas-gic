@@ -6,6 +6,31 @@
 
 ---
 
+## Quickstart
+
+```bash
+# Install (editable mode, no heavy dependencies)
+pip install -e .
+
+# Mock mode — no API keys needed
+atlas --days 5
+
+# Or use python -m
+python -m atlas --days 3
+
+# Show agent weights
+atlas status
+
+# Full backtest (requires API keys in .env)
+cp .env.example .env   # fill in your keys
+atlas backtest --start 2024-09-01 --end 2024-10-01
+
+# Live mode (one EOD cycle)
+atlas live
+```
+
+---
+
 ## What Is This?
 
 ATLAS is a framework for autonomous AI trading agents that improve their own prompts through market feedback.
@@ -114,21 +139,14 @@ Individual agents improved measurably through autoresearch - the financials agen
 
 ## What's Included
 
-- Framework architecture and pipeline structure
-- Autoresearch loop design
+- Runnable Python package (`pip install -e .`)
+- Full 4-layer, 25-agent pipeline with mock fallback
+- 25 agent prompt templates organised by layer
+- Darwinian weight system and autoresearch loop
+- Backtest engine with portfolio management
+- Data providers: FMP, Finnhub, FRED (all optional)
 - Backtest results, equity curve, agent weight evolution
-- Example placeholder prompts (generic, not trained)
-- Full methodology documentation
-
-## What's NOT Included
-
-- Trained agent prompts (proprietary - 378 days of evolutionary optimisation)
-- CIO active management rules
-- Agent scorecard data
-- Live portfolio positions
-- Infrastructure and deployment details
-
-The trained prompts are the core intellectual property. They are the product of market-driven evolutionary selection.
+- Architecture documentation
 
 ---
 
@@ -141,7 +159,7 @@ The trained agents are deployed on real market data.
 ## Tech Stack
 
 - **Agents:** Claude Sonnet (Anthropic API)
-- **Data:** FMP, Finnhub, Polygon, FRED
+- **Data:** FMP, Finnhub, FRED
 - **Infrastructure:** Azure VM ($20/month)
 - **Version Control:** Git feature branches for autoresearch tracking
 - **Cost:** ~$50-80 for full 18-month backtest

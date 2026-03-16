@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atlas-gic"
+version = "0.2.0"
+description = "ATLAS — Self-improving AI trading agents"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31.0",
+    "python-dotenv>=1.0.0",
+    "anthropic>=0.40.0",
+    "rich>=13.7.0",
+    "python-dateutil>=2.9.0",
+]
+
+[project.scripts]
+atlas = "atlas.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+atlas = ["prompts/**/*.md"]
